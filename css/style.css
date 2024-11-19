@@ -1,0 +1,225 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Start Alert */
+.alertContainer {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(51 51 51 / 0.5);
+    z-index: 100;
+}
+
+.alert {
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 200px);
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 50px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    animation-name: AlertShow;
+    animation-duration: 0.6s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes AlertShow {
+    0% {
+        transform: scaleX(0);
+    }
+    70% {
+        transform: scaleX(0.2);
+    }
+    80% {
+        transform: scaleX(0.3);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.alert p {
+    background-color: rgb(100 149 237 / 0.4);
+    padding: 15px 0px;
+    width: 100%;
+}
+
+.alert .closeAlert {
+    display: block;
+    padding: 10px 20px;
+    background-color: cornflowerblue;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    user-select: none;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.alert .closeAlert:hover {
+    filter: brightness(80%);
+}
+/* End Alert */
+
+/* Start Tasks Adder */
+.tasks-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto 0px;
+}
+
+.tasks-container .add-task {
+    background-color: cornflowerblue;
+    padding: 20px;
+    position: relative;
+}
+
+.tasks-container .add-task .task-input {
+    width: calc(100% - 15px);
+    outline: none;
+    padding: 10px;
+    border: none;
+    background-color: rgb(163, 195, 255);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.tasks-container .add-task .add-button {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    right: 18px;
+    top: calc(50% - 22px);
+    background-color: white;
+    border-radius: 50%;
+    line-height: 44px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bolder;
+    transition: transform 0.3s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tasks-container .add-task .add-button:hover {
+    transform: rotate(90deg);
+}
+/* End Tasks Adder */
+
+/* Start Tasks Content */
+.tasks-container .tasks-content { 
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.tasks-container .tasks-content > .task-box {
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasks-container .tasks-content > .finished > p{
+    text-decoration: line-through;
+}
+
+.tasks-container .tasks-content .no-tasks-massage {
+    text-align: center;
+    display: block;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #aaa;
+}
+
+.tasks-container .tasks-content > span:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.tasks-container .tasks-content > span span {
+    background-color: #FF0800 ;
+    color: white;
+    padding: 4px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+}
+/* End Tasks Content */
+
+/* Start Control Tasks*/
+.control-tasks {
+    background-color: #f4f4f4;
+    padding: 0px 20px 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.control-tasks .remove-all {
+    background-color: #FF0800;
+    padding: 5px 7px;
+    color: white;
+    border-radius: 6px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.control-tasks .complete-all {
+    background-color: grey;
+    padding: 5px 7px;
+    color: white;
+    border-radius: 6px;
+    user-select: none;
+    cursor: pointer;
+}
+/* End Control Tasks*/
+
+/* Start Tasks Stats */
+.tasks-container .task-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.tasks-container .task-stats > span {
+    background-color: #f4f4f4;
+    padding: 6px;
+}
+
+.tasks-container .task-stats > span > span {
+    margin-left: 4px;
+    padding: 1px 4px;
+    border-radius: 4px;
+    color: white;
+}
+
+.tasks-container .task-stats > :first-child > span {
+    background-color: deepskyblue;
+}
+
+.tasks-container .task-stats > :nth-child(2) > span {
+    background-color: #FF0800;
+}
+
+/* End Tasks Stats */
